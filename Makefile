@@ -8,8 +8,6 @@ SRCDIR = ./src
 OBJDIR = ./obj
 BINDIR = ./bin
 
-HEADERS = $(shell find $(INCLUDES) -name '*.h')
-
 .PHONY: all
 all: $(BINDIR)/bench $(BINDIR)/test
 
@@ -23,7 +21,7 @@ $(OBJDIR) $(BINDIR):
 $(OBJDIR)/%.asm.o: $(SRCDIR)/%.asm | $(OBJDIR)
 	$(NASM) -o $@ -f elf64 $<
 
-$(OBJDIR)/%.c.o: $(SRCDIR)/%.c $(HEADERS) | $(OBJDIR)
+$(OBJDIR)/%.c.o: $(SRCDIR)/%.c $(shell find $(INCLUDES) -name '*.h') | $(OBJDIR)
 	$(CC) -o $@  -I$(INCLUDES) $(CFLAGS) -c $<
 
 $(BINDIR)/bench: $(OBJDIR)/avxfish.asm.o $(OBJDIR)/bench.c.o | $(BINDIR)
