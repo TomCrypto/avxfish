@@ -1,7 +1,7 @@
 avxfish
 =======
 
-This repository contains an assembly AVX-512 implementation of the Threefish-1024 block cipher (forward direction only). Threefish-1024 is the widest variant of the Threefish family of block ciphers. It is not intended to be used directly, but instead used as a reference to integrate into other libraries as needed, or from which to implement more Threefish variants.
+This repository contains an assembly AVX-512 vectorized implementation of the Threefish-1024 block cipher (forward direction only). Threefish-1024 is the widest variant of the Threefish family of block ciphers. This implementation is not intended to be used directly, but to be integrated into other libraries as needed, or to be used as a reference from which to implement more vectorized Threefish variants. The same basic principle can be applied to all variants, but when it comes to SIMD, widest is fastest.
 
 # Performance
 
